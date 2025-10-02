@@ -1,0 +1,9 @@
+# 应用的通用配置
+servers:
+  AAA: # 源服务器 (正式服)
+    url: "https://aaa.example.com" # URL通常是固定的，可以放在这里
+  BBB: # 目标服务器 (测试服)
+    url: "https://bbb.example.com"
+
+# 供应商编码前缀
+supplier_prefix: "GYS"

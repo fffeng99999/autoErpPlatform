@@ -4,7 +4,7 @@
 # Create Date: 
 # Description: 
 # # --PROJECT-COMMENT-BLOCK--
-import time
+
 from pathlib import Path
 
 # --- 可配置项 ---
@@ -32,6 +32,7 @@ DIRECTORY_DEPTH_RULES = {
     "build": (0, 0),
     ".git": (1, 1),
     "yonbip_automator": (-1, 1),
+    "repo_analysis_sets": (2, 0),
     # 示例: "utils": (-1, 1), # 无限扫描 utils 目录，并显示所有文件
     # 示例: "config": (1, 0), # 只看 config 目录结构，不看里面的 .ini 或 .py 文件
 }

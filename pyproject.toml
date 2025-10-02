@@ -1,0 +1,46 @@
+# # --PROJECT-COMMENT-BLOCK--
+# File Path: pyproject.toml
+# Author:
+# Create Date:
+# Description:
+# # --PROJECT-COMMENT-BLOCK--
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto_erp_platform"
+version = "0.1.0"
+description = "A Selenium-based tool for ERP System Automation."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+# ----------------- 这里是核心部分 -----------------
+# 定义项目的核心依赖
+dependencies = [
+    "selenium",      # 你提供的依赖：用于Web自动化
+    "pyyaml",        # 你提供的依赖：用于解析YAML配置文件
+
+    # 以下是上次优化建议中推荐的依赖，强烈建议加入
+    "pydantic-settings", # 用于从.env和yaml加载配置并验证
+    "webdriver-manager", # 自动管理ChromeDriver
+
+    "pip-tools",
+]
+
+# 可选：定义用于开发和测试的额外依赖
+[project.optional-dependencies]
+dev = [
+    "pytest",        # 用于运行测试
+    "pip-tools",     # 用于从 pyproject.toml 生成 requirements.txt
+    "black",         # 代码格式化工具
+    "ruff",          # 高性能的代码 Linter
+]
+
+# 定义项目的命令行启动入口 (我们在上次讨论中提到的)
+[project.scripts]
