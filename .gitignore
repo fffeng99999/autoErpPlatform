@@ -1,2 +1,4 @@
 /repo_analysis_sets/
 /.venv/
+/services/rust_engine_rs/target/
+/services/rust_engine_rs/Cargo.lock

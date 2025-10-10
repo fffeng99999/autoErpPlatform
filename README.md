@@ -2,6 +2,8 @@
 
 
 
+
+
 ## 项目结构
 
 ```bash
@@ -39,6 +41,7 @@ autoErpPlatform/
     │   │   │   ├── dom_element.py
     │   │   │   └── task.py
     │   │   ├── __init__.py         # 作为包入口，可以定义版本、全局导出
+    │   │   ├── config.py           # 配置文件,使用 Pydantic 加载配置
     │   │   ├── exceptions.py
     │   │   └── logging.py
     │   ├── erp_deploy_engine/        # 自动部署引擎 (总指挥)

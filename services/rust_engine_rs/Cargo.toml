@@ -1,0 +1,8 @@
+[package]
+name = "rust_engine_rs"
+version = "0.1.0"
+edition = "2021"          # 或 2018
+authors = ["you <you@example.com>"]
+
+[dependencies]
+# 这里以后加依赖
