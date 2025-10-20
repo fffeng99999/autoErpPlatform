@@ -23,7 +23,7 @@ DEFAULT_DEPTH = -1
 #   - 是否显示文件 (1 或 0): 1 代表显示该目录下的文件，0 代表不显示。
 # 注意: 这个文件显示标志只对当前目录生效，不影响子目录。
 DIRECTORY_DEPTH_RULES = {
-    "web_drivers": (2, 0), # 扫描 web_drivers 2层，但其直属文件不显示
+    "web_drivers": (2, 0),
     "node_modules": (0, 0),
     "venv": (0, 0),
     ".venv": (0, 0),
@@ -31,8 +31,8 @@ DIRECTORY_DEPTH_RULES = {
     "dist": (0, 0),
     "build": (0, 0),
     ".git": (1, 1),
-    "yonbip_automator": (-1, 1),
     "repo_analysis_sets": (2, 0),
+    "web_ui/node_modules": (1, 0),
     # 示例: "utils": (-1, 1), # 无限扫描 utils 目录，并显示所有文件
     # 示例: "config": (1, 0), # 只看 config 目录结构，不看里面的 .ini 或 .py 文件
 }
@@ -204,7 +204,9 @@ def main():
     """
     主函数：生成树并写入 README.md
     """
-    project_root = Path.cwd()
+    current_file = Path(__file__).resolve()
+
+    project_root = current_file.parent.parent
 
     print("正在根据自定义规则扫描项目结构...")
     # 初始调用 generate_tree 时传入默认深度限制
@@ -224,8 +226,8 @@ def main():
     print(output_content)
 
     try:
-        with open(readme_path, "a", encoding="utf-8") as f:
-            f.write(output_content)
+        # with open(readme_path, "a", encoding="utf-8") as f:
+        #     f.write(output_content)
         print(f"成功将项目结构写入到: {readme_path}")
     except IOError as e:
         print(f"错误：无法写入文件 {readme_path}。请检查权限。")
